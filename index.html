@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Hub</title>
+  <script>
+    /* Apply saved settings before first paint. Storage may be blocked, so this is wrapped in try/catch. */
+    (function () {
+      try {
+        var d = document.documentElement, s = localStorage;
+        d.dataset.theme = s.getItem('sh-theme') || 'light';
+        d.dataset.size = s.getItem('sh-text-size') || 'normal';
+        d.dataset.font = s.getItem('sh-font') || 'default';
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="wordmark" href="index.html">Student Hub</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="group-finder.html">Find a group</a>
+    <div class="settings-wrap">
+      <button type="button" class="settings-btn" id="settingsBtn" aria-expanded="false" aria-controls="settingsPanel">Settings</button>
+      <div class="settings-panel" id="settingsPanel" hidden>
+        <fieldset>
+          <legend>Theme</legend>
+          <div class="opt-row">
+            <button type="button" class="opt" data-setting="theme" data-value="light" aria-pressed="true">Light</button>
+            <button type="button" class="opt" data-setting="theme" data-value="dark" aria-pressed="false">Dark</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Text size</legend>
+          <div class="opt-row">
+            <button type="button" class="opt" data-setting="size" data-value="small" aria-pressed="false">Small</button>
+            <button type="button" class="opt" data-setting="size" data-value="normal" aria-pressed="true">Normal</button>
+            <button type="button" class="opt" data-setting="size" data-value="large" aria-pressed="false">Large</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Font</legend>
+          <div class="opt-row">
+            <button type="button" class="opt" data-setting="font" data-value="default" aria-pressed="true">Default</button>
+            <button type="button" class="opt" data-setting="font" data-value="dyslexic" aria-pressed="false">Dyslexic-friendly</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="panels">
+    <section class="panel panel-green" aria-labelledby="resHeading">
+      <h2 id="resHeading">Resource Library</h2>
+      <p>Study materials.</p>
+      <a class="btn btn-green" href="resources.html">View resources</a>
+    </section>
+    <section class="panel panel-blue" aria-labelledby="grpHeading">
+      <h2 id="grpHeading">Group Finder</h2>
+      <p>Find a study group.</p>
+      <a class="btn btn-blue" href="group-finder.html">Find a group</a>
+    </section>
+  </div>
+
+  <h2 class="subjects-title">My subjects</h2>
+  <ul class="subjects">
+    <li><a class="subject sub-green" href="math.html">Mathematics <span class="code">MATH</span></a></li>
+    <li><a class="subject sub-green" href="biology.html">Biology <span class="code">BIOL</span></a></li>
+    <li><a class="subject sub-blue" href="history.html">History <span class="code">HIST</span></a></li>
+    <li><a class="subject sub-blue" href="english.html">English <span class="code">ENGL</span></a></li>
+    <li><a class="subject sub-blue" href="physics.html">Physics <span class="code">PHYS</span></a></li>
+    <li><a class="subject sub-blue" href="chemistry.html">Chemistry <span class="code">CHEM</span></a></li>
+    <li><a class="subject sub-blue" href="economics.html">Economics <span class="code">ECON</span></a></li>
+    <li><a class="subject sub-green" href="geography.html">Geography <span class="code">GEOG</span></a></li>
+  </ul>
+</main>
+
+</body>
+</html>
